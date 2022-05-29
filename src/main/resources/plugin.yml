@@ -1,0 +1,6 @@
+name: MCToDiscordBot
+version: '${project.version}'
+main: com.github.kingultron99.mctodiscordbot.MCToDiscordBot
+api-version: 1.18
+authors: [ king_ultron99 ]
+description: adds interoperability between Minecraft and Discord via a discord bot
