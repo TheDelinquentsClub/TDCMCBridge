@@ -10,17 +10,10 @@ import java.net.URISyntaxException
 
 object WebsocketClient {
     private lateinit var client : Socket
-    lateinit var uri : URI
-    private val prod: URI = URI.create("http://192.168.1.104:3000")
-    private val dev: URI = URI.create("http://localhost:3000")
+    private var uri : URI = URI.create("http://localhost:3000")
 
     fun createSocketInstance(isDev : Boolean) {
         println("Creating Websocket Client")
-        uri = if (isDev) {
-            dev
-        } else {
-            prod
-        }
         try {
             val options = IO.Options()
             options.transports = arrayOf(WebSocket.NAME)

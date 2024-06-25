@@ -130,9 +130,6 @@ class MCToDiscordBot : JavaPlugin() {
         }
 
         // Command Invokes
-        socket.on("restart") {
-            server.shutdown()
-        }
         socket.on("announce") { args ->
             println(args[0])
 
@@ -149,16 +146,6 @@ class MCToDiscordBot : JavaPlugin() {
                 player.sendMessage(MiniMessage.miniMessage().deserialize("<color:#5865F2>(discord) " + args[0].toString() + " → You:</color> ")
                     .append(MiniMessage.miniMessage().deserialize(msg))
                     .color(TextColor.color(NamedTextColor.GRAY)))
-            } else {
-                socket.emit("playernotfound")
-            }
-        }
-        socket.on("kill") { args ->
-            println(args[0])
-
-            val player = server.getPlayer(args[0].toString())
-            if (player != null) {
-                player.health = 0.0
             } else {
                 socket.emit("playernotfound")
             }
